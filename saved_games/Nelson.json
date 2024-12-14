@@ -1,0 +1,19 @@
+{
+  "player_name": "Nelson",
+  "secret_word": "potential",
+  "attempted_letters": [
+    "r"
+  ],
+  "revealed_letters": [
+    "p",
+    "o",
+    "_",
+    "_",
+    "n",
+    "_",
+    "i",
+    "_",
+    "_"
+  ],
+  "remaining_attempts": 12
+}

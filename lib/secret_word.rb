@@ -1,11 +1,12 @@
 class SecretWord
-  attr_reader :word, :revealed_letters, :attempted_letters, :remaining_attempts
+  attr_reader :word, :remaining_attempts
+  attr_accessor :revealed_letters, :attempted_letters
   
-  def initialize
-    @word = get_word
+  def initialize(word = nil)
+    @word = word || get_word
     @revealed_letters = Array.new(@word.length, '_')
     @attempted_letters = []
-    @remaining_attempts = @word.length
+    @remaining_attempts = @word.length + 3
   end
 
   def get_word
@@ -28,11 +29,7 @@ class SecretWord
     return if @attempted_letters.include?(letter)
 
     @attempted_letters << letter
-    if is_letter_in_word?(letter)
-      reveal_letter(letter)
-    else
-      @remaining_attempts -= 1
-    end
+    @remaining_attempts -= 1 unless in_word?(letter)
   end
 
   def current_state
